@@ -415,6 +415,25 @@ header {
   margin: 12px 0 18px;
   font-weight: 700;
 }
+/* Bouton simple "Payer maintenant" */
+.checkout-submit {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blanc);
+  background-color: var(--bordeaux);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.checkout-submit:hover {
+  background-color: var(--doré);
+  color: var(--noir);
+}
+
 
 /* ===== Cart Item Row ===== */
 .cart-item-row {

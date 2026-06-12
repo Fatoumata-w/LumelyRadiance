@@ -1,0 +1,214 @@
+<?php
+session_start();
+$connecte = isset($_SESSION['id']);
+$prenom   = $_SESSION['prenom'] ?? '';
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumely Radiance - Cosmétiques de Luxe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-container">
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+    <a href="index.php" class="logo">
+      <img src="Lumely Radiance.png" alt="Logo" class="logo-img">
+    </a>
+    <div class="header-actions">
+      <!-- Affiche soit le prénom + liens, soit les boutons connexion/inscription -->
+      <?php if ($connecte): ?>
+        <span class="user-welcome">Bonjour <?= htmlspecialchars($prenom) ?> </span>
+        <a href="commandes.php" class="btn-header">Mes commandes</a>
+        <a href="deconnexion.php" class="btn-header btn-deconnexion">Déconnexion</a>
+      <?php else: ?>
+        <a href="connexion.php"  class="btn-header">Connexion</a>
+        <a href="inscription.php" class="btn-header btn-inscription">S'inscrire</a>
+      <?php endif; ?>
+      <button id="cart-btn">🛒 (<span id="cart-count">0</span>)</button>
+    </div>
+  </div>
+  <nav class="main-nav" id="main-nav">
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#produits">Produits</a></li>
+      <li><a href="#histoire">Histoire</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="container">
+    <h1>Lumely Radiance</h1>
+    <p>Révélez votre beauté naturelle avec nos cosmétiques de luxe,<br>formulés avec des ingrédients précieux.</p>
+    <a href="#produits" class="cta-button">Découvrir nos Produits</a>
+  </div>
+</section>
+
+
+<!-- PRODUITS -->
+<section id="produits">
+  <h2 class="section-title">Nos Produits Signature</h2>
+  <div class="container products-grid">
+
+    <div class="product-card">
+      <h3>Essence d'Or</h3>
+      <img src="glowy spray.jpg" alt="Essence d'Or">
+      <p>Un spray lumineux et envoûtant, symbole d'élégance.</p>
+      <div class="product-price">189€</div>
+      <button class="product-button">Ajouter au Panier</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Crème Lumière</h3>
+      <img src="creme .png" alt="Crème Lumière">
+      <p>Une texture fondante qui révèle l'éclat naturel de la peau.</p>
+      <div class="product-price">125€</div>
+      <button class="product-button">Ajouter au Panier</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Huile d'Or</h3>
+      <img src="huile lumely.jpg" alt="Huile d'Or">
+      <p>Une huile sèche qui sublime la peau d'un éclat satiné.</p>
+      <div class="product-price">99€</div>
+      <button class="product-button">Ajouter au Panier</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Baume Lumière Pure</h3>
+      <img src="Baume lumely.png" alt="Baume Lumière Pure">
+      <p>Un baume parsemé de fleurs pour des lèvres sublimées.</p>
+      <div class="product-price">49€</div>
+      <button class="product-button">Ajouter au Panier</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Masque Éclat Royal</h3>
+      <img src="masque.jpg" alt="Masque Éclat Royal">
+      <p>Un masque luxueux qui revitalise et illumine la peau.</p>
+      <div class="product-price">79€</div>
+      <button class="product-button">Ajouter au Panier</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Sérum Lumière Intense</h3>
+      <img src="serum.jpg" alt="Sérum Lumière Intense">
+      <p>Un sérum concentré pour une peau éclatante.</p>
+      <div class="product-price">139€</div>
+      <button class="product-button">Ajouter au Panier</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Bougie Lumely</h3>
+      <img src="bougie lumely.jpg" alt="Bougie Lumely">
+      <p>Une bougie parfumée aux senteurs florales pour une ambiance douce et apaisante.</p>
+      <div class="product-price">39€</div>
+      <button class="product-button">Ajouter au Panier</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Masque de Nuit</h3>
+      <img src="masque de nuit.png" alt="Masque de Nuit">
+      <p>Un masque nuit réparateur qui agit pendant le sommeil pour une peau régénérée.</p>
+      <div class="product-price">89€</div>
+      <button class="product-button">Ajouter au Panier</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <form id="contact-form" class="contact-form">
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" placeholder="Votre nom" required>
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="Votre e-mail" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="4" placeholder="Votre message..." required></textarea>
+      </div>
+      <button type="submit" class="contact-button">Envoyer</button>
+    </form>
+    <div id="contact-notif" class="notification"> Merci Pour Ton Message !</div>
+  </div>
+</section>
+
+
+<!-- PANIER -->
+<aside id="cart" class="cart">
+  <h3>🛒 Mon Panier</h3>
+  <ul id="cart-items"></ul>
+  <div class="cart-total">Total : <strong><span id="cart-total">0.00</span>€</strong></div>
+  <div class="cart-actions">
+    <button id="cart-clear" class="btn-vider">Vider</button>
+    <button id="cart-checkout" class="btn-valider">Commander</button>
+  </div>
+</aside>
+
+
+<!-- FORMULAIRE PAIEMENT -->
+<section id="payment-section" class="drawer">
+  <div class="drawer-inner">
+    <button id="payment-close" class="drawer-close">✕</button>
+    <h3>💳 Paiement sécurisé</h3>
+    <form id="checkout-form">
+      <label>Nom sur la carte
+        <input id="card-name" type="text" placeholder="Jean Dupont" required>
+      </label>
+      <label>Numéro de carte
+        <input id="card-number" type="text" placeholder="1234 5678 9012 3456" maxlength="19" required>
+      </label>
+      <div class="row">
+        <label>Exp. MM/AA <input id="expiry" type="text" placeholder="MM/AA" maxlength="5" required></label>
+        <label>CVC <input id="cvc" type="text" placeholder="123" maxlength="4" required></label>
+      </div>
+      <div class="checkout-summary">
+        <span>Montant :</span>
+        <strong><span id="checkout-amount">0.00</span>€</strong>
+      </div>
+      <button type="submit" class="btn-payer">Payer maintenant</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- MODAL CONFIRMATION -->
+<div id="order-modal" class="modal">
+  <div class="modal-card">
+    <h3> Commande confirmée !</h3>
+    <p id="order-number"></p>
+    <button id="modal-close" class="contact-button">Fermer</button>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <img src="LY Radiance.png" alt="Monogramme LY Radiance" class="monogramme">
+    <p>&copy; 2026 Lumely Radiance. Tous droits réservés.</p>
+  </footer>
+
+<!-- Passe l'état de connexion au JS -->
+<script>const estConnecte = <?= $connecte ? 'true' : 'false' ?>;</script>
+<script src="panier.js"></script>
+
+</body>
+</html>
